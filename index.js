@@ -1,10 +1,10 @@
 const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
-const exphbs = require('express-handlebars');
-const morgan = require('morgan');
-const Sequelize = require('sequelize');
+const tasks = require('./controllers/tasks');
 
 app.use(bodyParser.urlencoded({ extended: false }));
+
+app.use('/tasks', tasks);
 
 app.listen(process.env.PORT);
