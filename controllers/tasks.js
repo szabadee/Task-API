@@ -16,6 +16,8 @@ tasks.get('/:id', (req, res) => {
   .then(task => {
     res.locals.task = task;
     res.json(task);
+  }).catch(err => {
+    console.error(err);
   });
 });
 
@@ -26,6 +28,8 @@ tasks.post('/', (req, res) => {
     message: req.body.message
   }).then(task => {
     res.json(task);
+  }).catch(err => {
+    console.error(err);
   });
 });
 
@@ -35,6 +39,8 @@ tasks.put('/:id', (req, res) => {
     { where: { id: req.params.id} })
     .then(task => {
       res.json(task);
+    }).catch(err => {
+      console.error(err);
     });
 });
 
@@ -44,6 +50,8 @@ tasks.delete('/:id', (req, res) => {
     { where: { id: req.params.id } })
     .then(tasks => {
       res.json(tasks);
+    }).catch(err => {
+      console.error(err);
     });
 });
 
